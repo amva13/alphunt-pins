@@ -1,12 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Pin from './Pin';
+import './MainBoard.css';
 
-function MainBoard() {
+function MainBoard(props) {
+    let {pins} = props;
+    // TODO: add className="mainboard_container to Container
   return (
    <Wrapper>
-    <Container>
-        <Pin></Pin>
+    <Container className="mainboard_container">
+        {pins.map((pin, index) => {
+            return <Pin key={index} urls={pin.urls} />
+        })}
     </Container>
    </Wrapper> 
   )
@@ -23,9 +28,13 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
     background-color: rgb(17,17,17);
-    display: flex;
-    width: 80%;
     margin-top:15px;
+    // margin: 0 auto;
+    // column-count:5;
+    // column-gap: 10px;
+    // max-width: 1260px;
+    height:100%;
+    // width:80%;
 `
 
 export default MainBoard

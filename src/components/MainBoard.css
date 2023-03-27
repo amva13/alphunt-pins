@@ -1,0 +1,71 @@
+@media {min-width: 1260px} and {max-width: 1511} {
+    .mainboard_container {
+        /* width: 1260px; */
+        column-count: 5;
+        max-width: 1260px;
+    }
+}
+
+@media {min-width: 1512px} and {max-width: 1763px} {
+    .mainboard_container {
+        /* width: 1512px; */
+        column-count: 6;
+        max-width: 1512px;
+    }
+}
+
+@media {min-width: 1008px} and {max-width: 1259} {
+    .mainboard_container {
+        /* width: 1008px; */
+        column-count: 4;
+        max-width: 1008px;
+    }
+}
+
+@media {min-width: 756} and {max-width: 1007} {
+    .mainboard_container {
+        /* width: 756px; */
+        column-count: 3;
+        max-width: 756px;
+    }
+}
+
+@media {min-width: none} and {max-width: 500} {
+    .mainboard_container {
+        /* width: 300px; */
+        column-count: 2;
+        max-width: 300px;
+    }
+}
+
+@media {min-width: 1764px} and {max-width: 2015px} {
+    .mainboard_container {
+        /* width: 1764px; */
+        column-count: 7;
+        max-width: 1764px;
+    }
+}
+
+@media {min-width: 2016px} and {max-width: 2267px} {
+    .mainboard_container {
+        /* width: 2016px; */
+        column-count: 8;
+        max-width: 2016px;
+    }
+}
+
+@media {min-width: 2268px} and {max-width: 2519px} {
+    .mainboard_container {
+        /* width: 2268px; */
+        column-count: 9;
+        max-width: 2268px;
+    }
+}
+
+@media {min-width: 2520px} and {max-width: none} {
+    .mainboard_container {
+        /* width: 2520px; */
+        column-count: 10;
+        max-width: 2520px;
+    }
+}
