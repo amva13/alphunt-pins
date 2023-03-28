@@ -8,7 +8,7 @@ function MainBoard(props) {
     // TODO: add className="mainboard_container to Container
   return (
    <Wrapper>
-    <Container className="mainboard_container">
+    <Container className='mainboard__container'>
         {pins.map((pin, index) => {
             return <Pin key={index} urls={pin.urls} />
         })}
@@ -23,14 +23,17 @@ const Wrapper = styled.div`
     justify-content: center; 
     height: 100%;
     width: 100%;
-    overflow:auto;
+    // overflow:auto;
 `
 
 const Container = styled.div`
     background-color: rgb(17,17,17);
     margin-top:15px;
+    // display:block;
     // margin: 0 auto;
-    // column-count:5;
+    // column-count: 5;
+    // column-count:repeat(auto-fit, minmax(100px, 1fr));
+    // grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     // column-gap: 10px;
     // max-width: 1260px;
     height:100%;

@@ -12,7 +12,7 @@ function Pin(props) {
 }
 
 const Wrapper = styled.div`
-  display: inline-flex;
+  display: flex;
   padding: 8px;
 `
 
@@ -26,7 +26,7 @@ const Container = styled.div`
   img {
     display: flex;
     width: 100%;
-    cursor: zoom-in;
+    cursor: pointer;
     border-radius: 16px;
     object-fit: cover;
   }
