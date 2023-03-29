@@ -6,6 +6,7 @@ import MainBoard from './components/MainBoard';
 import {useState, useEffect} from 'react';
 // import randomWords from 'random-words';
 import NFTs from './assets/NFTs.json';
+import {Helmet} from "react-helmet";
 
 function App() {
 
@@ -97,6 +98,15 @@ function App() {
 
   return (
     <div className="app">
+      <Helmet>
+                <meta charSet="utf-8" />
+                <title>NFT Masonry and Search Engine</title>
+                <meta property="og:title" content="NFT Masonry and Search Engine"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:image" content="./assets/apliko-icon-trans.png"/>
+                <meta property="og:url" content="https://aplikonfts.com"/>
+                <link rel="icon" href="./assets/apliko-icon-trans.png" />
+        </Helmet>
       <Header search={onNFTSearchSubmit}/>
       <MainBoard pins={pins}/>
     </div>
