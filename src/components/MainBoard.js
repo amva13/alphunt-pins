@@ -1,37 +1,37 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import Pin from './Pin';
 import './MainBoard.css';
-import ReactPaginate from 'react-paginate';
+// import ReactPaginate from 'react-paginate';
 
 
 function MainBoard(props) {
     let {pins} = props;
-    let items = pins;
-    const [itemOffset, setItemOffset] = useState(0);
-    const itemsPerPage = 500;
+    // let items = pins;
+    // const [itemOffset, setItemOffset] = useState(0);
+    // const itemsPerPage = 500;
 
-    // Simulate fetching items from another resources.
-    // (This could be items from props; or items loaded in a local state
-    // from an API endpoint with useEffect and useState)
-    const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    const currentItems = items.slice(itemOffset, endOffset);
-    const pageCount = Math.ceil(items.length / itemsPerPage);
+    // // Simulate fetching items from another resources.
+    // // (This could be items from props; or items loaded in a local state
+    // // from an API endpoint with useEffect and useState)
+    // const endOffset = itemOffset + itemsPerPage;
+    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    // const currentItems = items.slice(itemOffset, endOffset);
+    // const pageCount = Math.ceil(items.length / itemsPerPage);
   
-    // Invoke when user click to request another page.
-    const handlePageClick = (event) => {
-    //   const newOffset = (event.selected * itemsPerPage) % items.length;
-    //   console.log(
-    //     `User requested page number ${event.selected}, which is offset ${newOffset}`
-    //   );
-    const newOffset = itemOffset + itemsPerPage;
-      setItemOffset(newOffset);
-      const endOffset = itemOffset + itemsPerPage;
-        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-        const currentItems = items.slice(itemOffset, endOffset);
-        const pageCount = Math.ceil(items.length / itemsPerPage);
-    };
+    // // Invoke when user click to request another page.
+    // const handlePageClick = (event) => {
+    // //   const newOffset = (event.selected * itemsPerPage) % items.length;
+    // //   console.log(
+    // //     `User requested page number ${event.selected}, which is offset ${newOffset}`
+    // //   );
+    // const newOffset = itemOffset + itemsPerPage;
+    //   setItemOffset(newOffset);
+    //   const endOffset = itemOffset + itemsPerPage;
+    //     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    //     const currentItems = items.slice(itemOffset, endOffset);
+    //     const pageCount = Math.ceil(items.length / itemsPerPage);
+    // };
   return (
    <Wrapper>
     <Container className='mainboard__container'>

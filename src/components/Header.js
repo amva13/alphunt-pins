@@ -6,7 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import React, {useState} from 'react'
 import icon from '../assets/apliko-icon-trans.png'
-import { borderRadius } from '@mui/system'
+// import { borderRadius } from '@mui/system'
 
 function Header(props) {
     const [input, setInput] = useState('');
@@ -18,7 +18,7 @@ function Header(props) {
     <Wrapper>
         <LogoWrapper>
             <IconButton style={{shapeOutside:"src(../assets/apliko-icon-trans.png)", margin:0, padding:0, borderRadius:50}}>
-                <img style={{height: 50, width: 50, fit: "contain", borderRadius:50, clipPath:"circle()"}} src={icon}/>
+                <img style={{height: 50, width: 50, fit: "contain", borderRadius:50, clipPath:"circle()"}} src={icon} alt="nft pin"/>
             </IconButton>
 
         </LogoWrapper>
@@ -105,9 +105,9 @@ const LogoWrapper = styled.div`
     // }
 `
 
-const LogoWrapper2 = styled(LogoWrapper)`
-    padding-left: 50px;
-`
+// const LogoWrapper2 = styled(LogoWrapper)`
+//     padding-left: 50px;
+// `
 
 const SearchWrapper = styled.div`
     flex:1;
