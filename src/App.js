@@ -5,15 +5,35 @@ import MainBoard from './components/MainBoard';
 import unsplash from './api/unsplash';
 import {useState, useEffect} from 'react';
 import randomWords from 'random-words';
+import NFTs from './assets/NFTs.json';
 
 function App() {
+
   const [pins, setPins] = useState([]);
+
   function getImages(term){
     return unsplash.get("https://api.unsplash.com/search/photos/", {
       params: {
         query: term
       }
     })
+  }
+
+  function getNFTs(term){
+    // let nfts = JSON.parse(NFTs);
+    console.log(NFTs[0]);
+    var res;
+    if(term===""){
+      res = NFTs;
+    }
+    else {
+      res = NFTs.filter(nft => nft.name.toLowerCase().includes(term.toLowerCase()) || nft.network.toLowerCase().includes(term.toLowerCase()));
+    }
+    res = res.filter(nft => nft.img.includes(".png"));
+    res.sort((a,b) => {
+      return 0.5 - Math.random();
+    }); 
+    return res;
   }
 
   function onSearchSubmit(term){
@@ -34,9 +54,20 @@ function App() {
       });
   }
 
+  function onNFTSearchSubmit(term){
+    let results = getNFTs(term);
+    pins.sort((a,b) => {
+      return 0.5 - Math.random(); 
+    })
+    let newNFTs = [
+      ...results,
+      ...pins
+    ];
+    setPins(newNFTs);
+  }
+
   function getNewPins(){
     let rw = randomWords(10);
-    // let rw = ["dogs", "cats", "pikachu", "christmas", "mountains", "joker"]
     let resD = [];
     let promises = [];
     rw.forEach((t) => {
@@ -56,13 +87,18 @@ function App() {
 
   }
 
+  function getNewNFTs(){
+    setPins(getNFTs(""));
+  }
+
   useEffect(() => {
-    getNewPins();
+    // getNewPins();
+    getNewNFTs();
   }, [])
 
   return (
     <div className="app">
-      <Header search={onSearchSubmit}/>
+      <Header search={onNFTSearchSubmit}/>
       <MainBoard pins={pins}/>
     </div>
   );

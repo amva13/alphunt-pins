@@ -5,7 +5,7 @@ function Pin(props) {
   return (
     <Wrapper>
       <Container>
-        <img src={props.urls.regular} alt="alphunt-pin"/>
+        <img src={props.urls} alt="alphunt-pin" onClick={() => {window.open("https://"+props.clickurl)}}/>
       </Container>
     </Wrapper>
   )
@@ -30,6 +30,15 @@ const Container = styled.div`
     border-radius: 16px;
     object-fit: cover;
   }
+
+  img:hover {
+    -webkit-filter: brightness(50%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
 `
 
 export default Pin
