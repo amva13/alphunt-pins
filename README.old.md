@@ -1,2 +1,0 @@
-# alphunt-pins
-pinterest nfts
