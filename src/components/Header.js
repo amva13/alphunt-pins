@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 import { IconButton } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
-import MenuIcon from '@mui/icons-material/Menu';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import InstagramIcon from '@mui/icons-material/Instagram';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import LinkedInIcon from '@mui/icons-material/LinkedIn';
+// import InstagramIcon from '@mui/icons-material/Instagram';
 import React, {useState} from 'react'
 import icon from '../assets/apliko-icon-trans.png'
 // import { borderRadius } from '@mui/system'
@@ -150,13 +150,13 @@ const SearchBarWrapper = styled.div`
     }
 `
 
-const IconsWrapper = styled.div`
+// const IconsWrapper = styled.div`
 
-`
+// `
 
-const RightIcon = styled.div`
-    color:white;
-    margin-left: 10px;
-`
+// const RightIcon = styled.div`
+//     color:white;
+//     margin-left: 10px;
+// `
 
 export default Header
