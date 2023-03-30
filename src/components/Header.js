@@ -38,7 +38,7 @@ function Header(props) {
             </SearchBarWrapper>
         </SearchWrapper>
 
-        <IconsWrapper>
+        {/* <IconsWrapper>
             <IconButton>
                 <RightIcon>
                     <InstagramIcon />
@@ -54,7 +54,7 @@ function Header(props) {
                     <MenuIcon />
                 </RightIcon>
             </IconButton>
-        </IconsWrapper>
+        </IconsWrapper> */}
     </Wrapper>
   )
 }
@@ -111,20 +111,24 @@ const LogoWrapper = styled.div`
 
 const SearchWrapper = styled.div`
     flex:1;
+    padding-left:20px;
+    padding-right:20px;
 `
 
 const SearchBarWrapper = styled.div`
     background-color: #efefef;
     display: flex;
     height: 48px;
-    width: 100%;
+    width: 90%;
     border-radius: 50px;
     border:none;
-    padding-left:10px;
+    padding-left:20px;
+    padding-right:20px;
 
     form {
-        display:flex;
-        flex:1;
+        display:block;
+        // flex:1;
+        margin-right:20px;
     }
 
     form > input {
@@ -133,10 +137,12 @@ const SearchBarWrapper = styled.div`
         width: 100%;
         margin-left = 5px;
         font-size: 16px;
+        margin-right:20px;
     }
 
     form > button {
         display: none;
+        margin-right:20px;
     }
 
     input:focus {
