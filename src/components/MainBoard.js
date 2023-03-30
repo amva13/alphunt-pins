@@ -73,7 +73,7 @@ const Container = styled.div`
     // column-gap: 10px;
     // max-width: 1260px;
     height:100%;
-    // width:80%;
+    width:90%;
 `
 
 export default MainBoard

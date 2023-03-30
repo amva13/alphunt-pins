@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 import { IconButton } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
-import MenuIcon from '@mui/icons-material/Menu';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import InstagramIcon from '@mui/icons-material/Instagram';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import LinkedInIcon from '@mui/icons-material/LinkedIn';
+// import InstagramIcon from '@mui/icons-material/Instagram';
 import React, {useState} from 'react'
 import icon from '../assets/apliko-icon-trans.png'
 // import { borderRadius } from '@mui/system'
@@ -38,7 +38,7 @@ function Header(props) {
             </SearchBarWrapper>
         </SearchWrapper>
 
-        <IconsWrapper>
+        {/* <IconsWrapper>
             <IconButton>
                 <RightIcon>
                     <InstagramIcon />
@@ -54,8 +54,8 @@ function Header(props) {
                     <MenuIcon />
                 </RightIcon>
             </IconButton>
-        </IconsWrapper>
-    </Wrapper>
+        </IconsWrapper> */}
+    </Wrapper> 
   )
 }
 
@@ -117,7 +117,7 @@ const SearchBarWrapper = styled.div`
     background-color: #efefef;
     display: flex;
     height: 48px;
-    width: 100%;
+    width: 90%;
     border-radius: 50px;
     border:none;
     padding-left:10px;
@@ -144,13 +144,13 @@ const SearchBarWrapper = styled.div`
     }
 `
 
-const IconsWrapper = styled.div`
+// const IconsWrapper = styled.div`
 
-`
+// `
 
-const RightIcon = styled.div`
-    color:white;
-    margin-left: 10px;
-`
+// const RightIcon = styled.div`
+//     color:white;
+//     margin-left: 10px;
+// `
 
 export default Header
