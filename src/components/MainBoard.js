@@ -32,7 +32,7 @@ function MainBoard(props) {
    <br></br>
    <br></br>
    <ScrollButton onClick={props.newpage}>
-   <a>More results</a>
+    More results
  </ScrollButton>
  </div>
   )
@@ -76,18 +76,18 @@ const ScrollButton = styled(HomeButtons)`
     background-color:rgb(17,17,17);
     margin:auto;
 
-    a {
-        text-decoration: none;
-        font-weight:700;
-        color:white;
-    }
+    // a {
+    text-decoration: none;
+    font-weight:700;
+    color:white;
+    // }
     
     :hover {
         background-color: #F2F2F2;
 
-        a {
-            color:black;
-        }
+        // a {
+        color:black;
+        // }
     }
 `
 
