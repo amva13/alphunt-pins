@@ -12,17 +12,47 @@ function App() {
 
   const [pins, setPins] = useState([]);
 
-  // function getImages(term){
-  //   return unsplash.get("https://api.unsplash.com/search/photos/", {
-  //     params: {
-  //       query: term
-  //     }
-  //   })
-  // }
+  // const listInnerRef = useRef();
+  const pinsPerPage = 100;
+  const totalPins = pins.length;
+  var response;
+
+  const [currPage, setCurrPage] = useState(1); // storing current page number
+  // const [prevPage, setPrevPage] = useState(-1); // storing prev page number
+  const [userList, setUserList] = useState([]); // storing list
+  // const [wasLastList, setWasLastList] = useState(false); // setting a flag to know the last list
+
+  const handleClick = (e) => {
+    // const sheight = e.target.scrollHeight;
+    // const stop = e.target.scrollTop;
+    // const theight = e.target.clientHeight;
+    // if (sheight - stop === theight) {
+      // This will be triggered after hitting the last element.
+      // API call should be made here while implementing pagination.
+      console.log("it was called");
+    const curMarker = currPage*pinsPerPage;
+    // if(curMarker >= totalPins){
+    //   setWasLastList(true);
+    // }
+    // else {
+    response = pins.slice(curMarker, curMarker + pinsPerPage);
+    console.log(response.length);
+    if(response.length === 0){
+      setCurrPage(0);
+      handleClick(e);
+    }
+      // setPrevPage(currPage);
+    setCurrPage(currPage+1);
+    setUserList([...userList, ...response]);
+    if(currPage*pinsPerPage >= totalPins){
+      setCurrPage(0);
+    }
+    // }
+    // }
+  };
+
 
   function getNFTs(term){
-    // let nfts = JSON.parse(NFTs);
-    console.log(NFTs[0]);
     var res;
     if(term===""){
       res = NFTs;
@@ -37,23 +67,7 @@ function App() {
     return res;
   }
 
-  // function onSearchSubmit(term){
-  //     getImages(term).then((res) => {
-  //       let results = res.data.results;
-  //       // console.log(res.status);
-  //       // console.log(res.data.total);
-  //       // console.log(results);
-  //       // console.log("test");
-  //       results.sort((a,b) => {
-  //         return 0.5 - Math.random();
-  //       });
-  //       let newPins = [
-  //         ...results,
-  //         ...pins
-  //       ];
-  //       setPins(newPins);
-  //     });
-  // }
+  
 
   function onNFTSearchSubmit(term){
     let results = getNFTs(term);
@@ -65,35 +79,23 @@ function App() {
       ...pins
     ];
     setPins(newNFTs);
+    response = newNFTs.slice(0, pinsPerPage);
+    // setPrevPage(0);
+    setCurrPage(1);
+    setUserList([...response, ...userList]); 
   }
 
-  // function getNewPins(){
-  //   let rw = randomWords(10);
-  //   let resD = [];
-  //   let promises = [];
-  //   rw.forEach((t) => {
-  //     promises.push(
-  //       getImages(t).then((res) => {
-  //         let results = res.data.results;
-  //         resD = resD.concat(results);
-  //       })
-  //     );
-  //   })
-  //   Promise.all(promises).then(() => {
-  //     resD.sort((a,b) => {
-  //       return 0.5 - Math.random();
-  //     });
-  //     setPins(resD);
-  //   });
-
-  // }
-
-  // function getNewNFTs(){
-  //   setPins(getNFTs(""));
-  // }
+  
 
   useEffect(() => {
-    setPins(getNFTs(""));
+    let nftpins = getNFTs("");
+    setPins(nftpins);
+    let sl = nftpins.slice(0, pinsPerPage);
+    setUserList([...sl]);
+    // response = pins.slice(0, pinsPerPage);
+    // setPrevPage(0);
+    // setCurrPage(1);
+    // setUserList([...response]);
   }, [])
 
   return (
@@ -108,7 +110,7 @@ function App() {
                 <link rel="icon" href="./assets/apliko-icon-trans.png" />
         </Helmet>
       <Header search={onNFTSearchSubmit}/>
-      <MainBoard pins={pins}/>
+      <MainBoard pins={userList} newpage={handleClick}/>
     </div>
   );
 }

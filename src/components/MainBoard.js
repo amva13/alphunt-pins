@@ -1,40 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import Pin from './Pin';
 import './MainBoard.css';
+import { useState, useRef } from 'react';
+import Container from 'react-bootstrap/Container';
 // import ReactPaginate from 'react-paginate';
 
 
 function MainBoard(props) {
     let {pins} = props;
-    // let items = pins;
-    // const [itemOffset, setItemOffset] = useState(0);
-    // const itemsPerPage = 500;
-
-    // // Simulate fetching items from another resources.
-    // // (This could be items from props; or items loaded in a local state
-    // // from an API endpoint with useEffect and useState)
-    // const endOffset = itemOffset + itemsPerPage;
-    // console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    // const currentItems = items.slice(itemOffset, endOffset);
-    // const pageCount = Math.ceil(items.length / itemsPerPage);
   
-    // // Invoke when user click to request another page.
-    // const handlePageClick = (event) => {
-    // //   const newOffset = (event.selected * itemsPerPage) % items.length;
-    // //   console.log(
-    // //     `User requested page number ${event.selected}, which is offset ${newOffset}`
-    // //   );
-    // const newOffset = itemOffset + itemsPerPage;
-    //   setItemOffset(newOffset);
-    //   const endOffset = itemOffset + itemsPerPage;
-    //     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-    //     const currentItems = items.slice(itemOffset, endOffset);
-    //     const pageCount = Math.ceil(items.length / itemsPerPage);
-    // };
   return (
+    <div>
    <Wrapper>
-    <Container className='mainboard__container'>
+    <Container2 className='mainboard__container' onScroll={props.scroll}>
         {pins.map((pin, index) => {
             return <Pin key={index} urls={pin.img} clickurl={pin.url} />
         })}
@@ -48,8 +27,14 @@ function MainBoard(props) {
         renderOnZeroPageCount={null}
         onScroll={handlePageClick}
       /> */}
-    </Container>
+    </Container2>
    </Wrapper> 
+   <br></br>
+   <br></br>
+   <ScrollButton onClick={props.newpage}>
+   <a>More results</a>
+ </ScrollButton>
+ </div>
   )
 }
 
@@ -59,10 +44,11 @@ const Wrapper = styled.div`
     justify-content: center; 
     height: 100%;
     width: 100%;
+    // text-align:center;
     // overflow:auto;
 `
 
-const Container = styled.div`
+const Container2 = styled.div`
     background-color: rgb(17,17,17);
     margin-top:15px;
     // display:block;
@@ -74,6 +60,35 @@ const Container = styled.div`
     // max-width: 1260px;
     height:100%;
     width:90%;
+`
+
+const HomeButtons = styled.button`
+    display: flex;
+    height: 48px;
+    min-width: 123px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    cursor: pointer;
+`
+
+const ScrollButton = styled(HomeButtons)`
+    background-color:rgb(17,17,17);
+    margin:auto;
+
+    a {
+        text-decoration: none;
+        font-weight:700;
+        color:white;
+    }
+    
+    :hover {
+        background-color: #F2F2F2;
+
+        a {
+            color:black;
+        }
+    }
 `
 
 export default MainBoard
