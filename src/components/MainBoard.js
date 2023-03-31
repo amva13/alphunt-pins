@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import Pin from './Pin';
 import './MainBoard.css';
-import { useState, useRef } from 'react';
-import Container from 'react-bootstrap/Container';
+// import { useState, useRef } from 'react';
+// import Container from 'react-bootstrap/Container';
 // import ReactPaginate from 'react-paginate';
 
 
